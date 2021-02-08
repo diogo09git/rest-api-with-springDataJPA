@@ -73,11 +73,11 @@ public class ProductController {
 	public ResponseEntity<Product> deleteProduct(@PathVariable Integer id) {
 		
 		return productRepository.findById(id)
-				.map(product -> {
-					productRepository.delete(product);
-					return new ResponseEntity<Product>(HttpStatus.OK);
-				})
-				.orElse(ResponseEntity.notFound().build());
+			.map(product -> {
+				productRepository.delete(product);
+				return new ResponseEntity<Product>(HttpStatus.OK);
+			})
+			.orElse(ResponseEntity.notFound().build());
 	}
 }
 
