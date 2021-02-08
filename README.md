@@ -6,7 +6,7 @@ Build REST API with Spring Boot, Spring Data JPA and MariaDB
 
 1. Java - 11.x.x
 
-2. Gradle - 2.x.x
+2. Gradle - 6.x.x
 
 ## Steps to Setup
 
@@ -16,17 +16,17 @@ Build REST API with Spring Boot, Spring Data JPA and MariaDB
 git clone https://github.com/diogo09git/rest-api-with-springDataJPA.git
 ```
 
-**2. Build and run the app using maven**
+**2. Package your app and run using gradle**
 
 ```bash
-mvn package
-java -jar target/api-rest-0.0.1-SNAPSHOT.jar
+.gradlew build
+java -jar build/libs/api-rest-0.0.1-SNAPSHOT.jar
 ```
 
 **3. Alternatively, you can run the app without packaging it using**
 
 ```bash
-mvn spring-boot:run
+./gradlew bootRun
 ```
 
 The app will start running at <http://localhost:8080>.
@@ -35,14 +35,14 @@ The app will start running at <http://localhost:8080>.
 
 The app defines following CRUD APIs.
 
-    GET /api/products
+    GET /api/product
     
-    GET /api/products/{id}
+    GET /api/product/{id}
     
-    POST /api/products/save
+    POST /api/product/save
     
-    DELETE /api/products/delete/{id}
+    DELETE /api/product/delete/{id}
     
-    PUT /api/products/update/{id}
+    PUT /api/product/update/{id}
 
 #### You can test them using Postman or any other rest client.
