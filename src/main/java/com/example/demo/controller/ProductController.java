@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.domain.Product;
 import com.example.demo.repository.ProductRepository;
 
+@SuppressWarnings("unused")
 @RestController
 @RequestMapping("/api")
 public class ProductController {
@@ -55,18 +57,42 @@ public class ProductController {
 		return new ResponseEntity<Product>(product, HttpStatus.CREATED);
 	}
 	
-	@PutMapping("/product/update/{id}")
-	public ResponseEntity<Product> updateProducct(@PathVariable Integer id, @RequestBody Product newProduct) {
+//	@PutMapping("/product/update/{id}")
+//	public ResponseEntity<Product> updateProducct(@PathVariable Integer id, @RequestBody Product newProduct) {
+//		
+//		return productRepository.findById(id)
+//				.map(product -> {
+//					product.setName(newProduct.getName());
+//					product.setDescription(newProduct.getDescription());
+//					product.setType(newProduct.getType());
+//					productRepository.save(product);
+//					return new ResponseEntity<Product>(product, HttpStatus.OK);
+//				})
+//				.orElse(ResponseEntity.notFound().build());
+//	}
+	
+	//(PatchMapping) Update total or partial data on the server
+	
+	@PatchMapping("/product/update/{id}")
+	public ResponseEntity<Product> updateProduct(@PathVariable Integer id, @RequestBody Product newProduct) {
 		
 		return productRepository.findById(id)
 				.map(product -> {
-					product.setName(newProduct.getName());
-					product.setDescription(newProduct.getDescription());
-					product.setType(newProduct.getType());
+					if(newProduct.getBrand() != null) {
+						product.setBrand(newProduct.getBrand());
+					}
+					if(newProduct.getDescription() != null) {
+						product.setDescription(newProduct.getDescription());
+					}
+					if(newProduct.getType() != null) {
+						product.setType(newProduct.getType());
+					}
+					
 					productRepository.save(product);
 					return new ResponseEntity<Product>(product, HttpStatus.OK);
-				})
-				.orElse(ResponseEntity.notFound().build());
+					
+				}).orElse(ResponseEntity.notFound().build());
+		
 	}
 	
 	@DeleteMapping("/product/delete/{id}")
