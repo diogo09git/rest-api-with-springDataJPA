@@ -15,21 +15,21 @@ Build REST API with Spring Boot, Spring Data JPA and MariaDB
 ```bash
 git clone https://github.com/diogo09git/rest-api-with-springDataJPA.git
 ```
-**3. Create MariaDB database and change username and password as per your installation**
+**2. Create MariaDB database and change username and password as per your installation**
 
 ```bash
   create database productdb
   change spring.datasource.username and spirng.datasource.password
 ```
 
-**2. Package your app and run using gradle**
+**3. Package your app and run using gradle**
 
 ```bash
 .gradlew build
 java -jar build/libs/api-rest-0.0.1-SNAPSHOT.jar
 ```
 
-**3. Alternatively, you can run the app without packaging it using**
+**4. Alternatively, you can run the app without packaging it using**
 
 ```bash
 ./gradlew bootRun
