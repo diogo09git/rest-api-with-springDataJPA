@@ -41,14 +41,14 @@ The app will start running at <http://localhost:8080>.
 
 The app defines following CRUD APIs.
 
-    GET /api/product
+    GET /api/products
     
-    GET /api/product/{id}
+    GET /api/products/{id}
     
-    POST /api/product/save
+    POST /api/products
     
-    DELETE /api/product/delete/{id}
+    DELETE /api/products/{id}
     
-    PUT /api/product/update/{id}
+    PATCH /api/products/{id}
 
 #### You can test them using Postman or any other rest client.
