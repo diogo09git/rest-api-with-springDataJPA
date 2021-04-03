@@ -1,7 +1,9 @@
 package com.example.demo.domain;
 
 import org.springframework.hateoas.RepresentationModel;
+import org.springframework.hateoas.server.core.Relation;
 
+@Relation(value = "product", collectionRelation = "products")
 public class ProductModel extends RepresentationModel<ProductModel> {
 
 	private String brand;
