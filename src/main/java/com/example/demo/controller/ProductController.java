@@ -30,7 +30,7 @@ public class ProductController {
 		this.productRepository = productRepository;
 	}
 	
-//	@GetMapping("/product")
+//	@GetMapping("/products")
 //	public ResponseEntity<Iterable<Product>> findAll() {
 //		
 //		Optional<Iterable<Product>> products = Optional.of(productRepository.findAll());

@@ -29,7 +29,7 @@ public class Product {
 		this.type = type;
 		this.description = description;
 	}
-	
+
 	public Integer getId() {
 		return id;
 	}
@@ -57,7 +57,5 @@ public class Product {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
-	
 	
 }
